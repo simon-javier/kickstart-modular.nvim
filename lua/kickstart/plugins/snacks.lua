@@ -360,6 +360,13 @@ return {
         end,
         desc = 'LSP Workspace Symbols',
       },
+      {
+        '<leader>rn',
+        function()
+          vim.lsp.buf.rename()
+        end,
+        desc = 'LSP [R]ename',
+      },
     },
     init = function()
       vim.api.nvim_create_autocmd('User', {
