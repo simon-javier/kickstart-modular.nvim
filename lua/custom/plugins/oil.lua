@@ -3,7 +3,9 @@ return {
     'stevearc/oil.nvim',
     ---@module 'oil'
     ---@type oil.SetupOpts
-    opts = {},
+    opts = {
+      skip_confirm_for_simple_edits = true,
+    },
     keys = {
       vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' }),
     },
