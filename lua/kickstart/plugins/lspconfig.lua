@@ -194,6 +194,11 @@ return {
         filetypes = { 'html', 'templ', 'php' },
       }
 
+      vim.lsp.enable {
+        'djlsp',
+        'html',
+      }
+
       local servers = {
         -- clangd = {},
         -- gopls = {},
