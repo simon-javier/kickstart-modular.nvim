@@ -5,7 +5,7 @@ return {
     lazy = false,
     ---@type snacks.Config
     opts = {
-      explorer = { enabled = true },
+      explorer = { enabled = false },
       picker = { enabled = true },
     },
     keys = {
@@ -37,13 +37,6 @@ return {
           Snacks.picker.command_history()
         end,
         desc = 'Command History',
-      },
-      {
-        '<leader>e',
-        function()
-          Snacks.explorer()
-        end,
-        desc = 'File Explorer',
       },
       -- find
       {

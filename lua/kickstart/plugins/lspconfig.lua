@@ -170,7 +170,7 @@ return {
       --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
-      vim.lsp.config['emmet_ls'] = {
+      vim.lsp.config['emmet_language_server'] = {
         filetypes = {
           'astro',
           'css',
@@ -191,12 +191,28 @@ return {
       }
 
       vim.lsp.config['html'] = {
-        filetypes = { 'html', 'templ', 'php' },
+        filetypes = { 'html', 'templ', 'php', 'htmldjango' },
+      }
+
+      vim.lsp.config['basedpyright'] = {
+        settings = {
+          basedpyright = {
+            -- Using Ruff's import organizer
+            disableOrganizeImports = true,
+          },
+          python = {
+            analysis = {
+              -- Ignore all files for analysis to exclusively use Ruff for linting
+              ignore = { '*' },
+            },
+          },
+        },
       }
 
       vim.lsp.enable {
         'djlsp',
         'html',
+        'ruff',
       }
 
       local servers = {
@@ -246,7 +262,6 @@ return {
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
         'html',
-        'emmet_ls',
         'ts_ls',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
