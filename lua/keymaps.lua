@@ -78,3 +78,19 @@ vim.keymap.set('n', '<leader>k', '<cmd>lnext<CR>zz')
 vim.keymap.set('n', '<leader>j', '<cmd>lprev<CR>zz')
 
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = '[C]ode Action' })
+
+-- html & django specific
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'html', 'htmldjango' },
+  callback = function(args)
+    vim.keymap.set('n', '<leader>uj', function()
+      if vim.bo[args.buf].filetype == 'html' then
+        vim.bo[args.buf].filetype = 'htmldjango'
+        print 'Filetype set to: htmldjango'
+      else
+        vim.bo[args.buf].filetype = 'html'
+        print 'Filetype set to: html'
+      end
+    end, { buffer = args.buf, desc = 'Toggle Django File Type' })
+  end,
+})
