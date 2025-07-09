@@ -209,10 +209,14 @@ return {
         },
       }
 
+      vim.lsp.config['arduino-language-server'] = {}
+
       vim.lsp.enable {
+        'emmet_language_server',
         'djlsp',
         'html',
         'ruff',
+        'arduino-language-server',
       }
 
       local servers = {

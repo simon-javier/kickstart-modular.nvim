@@ -78,3 +78,5 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 
 vim.opt.incsearch = true
+
+vim.opt.colorcolumn = '80'
