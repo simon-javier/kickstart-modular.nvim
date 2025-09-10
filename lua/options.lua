@@ -78,3 +78,6 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 
 vim.opt.incsearch = true
+
+-- Keep a history of jump locations (stack) and restore view settings (view) when jumping
+vim.opt.jumpoptions = 'stack,view'
