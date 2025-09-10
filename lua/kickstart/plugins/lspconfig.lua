@@ -199,6 +199,7 @@ return {
           basedpyright = {
             -- Using Ruff's import organizer
             disableOrganizeImports = true,
+            typeCheckingMode = 'standard',
           },
           python = {
             analysis = {
