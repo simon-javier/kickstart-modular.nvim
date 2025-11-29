@@ -211,13 +211,25 @@ return {
       }
 
       vim.lsp.config['arduino-language-server'] = {}
+      vim.lsp.config['tailwindcss'] = {}
+      vim.lsp.config['haxe_language_server'] = {}
+      vim.lsp.config['matlab_ls'] = {}
+      vim.lsp.config['sourcery'] = {}
+      vim.lsp.config['jsonnet_ls'] = {}
+      vim.lsp.config['codeqlls'] = {}
+      vim.lsp.config['glint'] = {}
+      vim.lsp.config['tinymist'] = {
+        cmd = { 'tinymist' },
+        filetypes = { 'typst' },
+        settings = {
+          formatterMode = 'typstyle',
+          exportPdf = 'onType',
+          semanticTokens = 'disable',
+        },
+      }
 
       vim.lsp.enable {
-        'emmet_language_server',
-        'djlsp',
-        'html',
-        'ruff',
-        'arduino-language-server',
+        'tailwindcss',
       }
 
       local servers = {
@@ -266,7 +278,6 @@ return {
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
-        'html',
         'ts_ls',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
