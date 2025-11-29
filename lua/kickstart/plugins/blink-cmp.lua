@@ -1,4 +1,10 @@
 return {
+  {
+    'saghen/blink.compat',
+    version = '*',
+    lazy = true, -- Automatically loads when required by blink.cmp
+    opts = {},
+  },
   { -- Autocompletion
     'saghen/blink.cmp',
     event = 'VimEnter',
@@ -68,6 +74,7 @@ return {
         -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
         -- Adjusts spacing to ensure icons are aligned
         nerd_font_variant = 'mono',
+        use_nvim_cmp_as_default = true,
       },
 
       completion = {
@@ -77,9 +84,13 @@ return {
       },
 
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'lazydev' },
+        default = { 'lsp', 'path', 'snippets', 'lazydev', 'html-css' },
         providers = {
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
+          ['html-css'] = {
+            name = 'html-css',
+            module = 'blink.compat.source',
+          },
         },
       },
 
