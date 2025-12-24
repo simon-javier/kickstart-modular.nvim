@@ -94,3 +94,7 @@ vim.api.nvim_create_autocmd('FileType', {
     end, { buffer = args.buf, desc = 'Toggle Django File Type' })
   end,
 })
+
+vim.keymap.set('n', '<leader>zr', ':LspRestart<CR>', { desc = 'LSP Restart' })
+vim.keymap.set('n', '<leader>sr', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set('v', '<leader>sr', [[y:%s/\V<C-r>=escape(@", '/\')<CR>/<C-r>=escape(@", '/\')<CR>/gI<Left><Left><Left>]])
