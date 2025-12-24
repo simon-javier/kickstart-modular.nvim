@@ -9,3 +9,7 @@ end, { expr = true, silent = true })
 vim.keymap.set('n', 'k', function()
   return vim.v.count == 0 and 'gk' or 'k'
 end, { expr = true, silent = true })
+
+vim.keymap.set('n', '<leader>ut', '<cmd>TypstPreviewToggle<CR>', { desc = 'Toggle Typst Preview' })
+vim.keymap.set('n', '<leader>ts', '<cmd>TypstPreviewSyncCursor<CR>', { desc = 'Sync Typst Cursor' })
+

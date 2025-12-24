@@ -171,27 +171,27 @@ return {
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       vim.lsp.config['emmet_language_server'] = {
+        capabilities = capabilities,
         filetypes = {
-          'astro',
-          'css',
-          'eruby',
+          'blade',
           'html',
           'htmldjango',
-          'javascriptreact',
-          'less',
-          'pug',
-          'sass',
-          'scss',
-          'svelte',
-          'typescriptreact',
-          'vue',
-          'htmlangular',
           'php',
+        },
+        init_options = {
+          includeLanguages = {
+            blade = 'html',
+          },
+          html = {
+            options = {
+              ['bem.enabled'] = true,
+            },
+          },
         },
       }
 
       vim.lsp.config['html'] = {
-        filetypes = { 'html', 'templ', 'php', 'htmldjango' },
+        filetypes = { 'html', 'templ', 'php', 'htmldjango', 'blade' },
       }
 
       vim.lsp.config['basedpyright'] = {
@@ -199,7 +199,7 @@ return {
           basedpyright = {
             -- Using Ruff's import organizer
             disableOrganizeImports = true,
-            typeCheckingMode = 'standard',
+            typeCheckingMode = 'basic',
           },
           python = {
             analysis = {
@@ -208,6 +208,10 @@ return {
             },
           },
         },
+      }
+
+      vim.lsp.config['harper_ls'] = {
+        filetypes = { 'markdown', 'typst', 'txt' },
       }
 
       vim.lsp.enable {
